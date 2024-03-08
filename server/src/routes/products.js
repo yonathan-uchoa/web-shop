@@ -1,5 +1,30 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
+
+/** Product definition
+ * @swagger
+ * components:
+ *  schemas:
+ *    Product:
+ *      type: object
+ *      required:
+ *        - id
+ *        - price
+ *        - category
+ *        - title
+ *        - quantity
+ *      properties:
+ *        id:
+ *          type: string
+ *        category:
+ *          type: string
+ *        title:
+ *          type: string
+ *        quantity:
+ *          type: integer
+ *        price:
+ *          type: number
+ */
 
 router.get("/", (req, res) => {
   fetch(
@@ -59,4 +84,4 @@ router.get("/category/electronics", (req, res) => {
     });
 });
 
-module.exports = router;
+export default router;

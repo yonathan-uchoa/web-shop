@@ -1,12 +1,51 @@
-require("dotenv").config();
+import dotenv from "dotenv";
+// server
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import swaggerUI from "swagger-ui-express";
+import specs from "./src/config/swagger-conf.js";
+// database
+import mongoose from "mongoose";
+import { MongoMemoryServer } from "mongodb-memory-server";
+// routes
+import ProductsRouter from "./src/routes/products.js";
+import CartRouter from "./src/routes/cart.js";
+import OrderRouter from "./src/routes/order.js";
 
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const productsRouter = require("./routes/products");
+import Counter from "./src/model/counter.js";
+
+dotenv.config();
 
 const app = express();
 
+/** -------- mongoose configuration -------- */
+const isTestEnvironment = true;
+//process.env.NODE_ENV === "test" ;
+
+const mongoUri = isTestEnvironment
+  ? undefined // Use the in-memory server for testing
+  : process.env.DATABASE;
+
+const connectToMongoDB = async () => {
+  try {
+    if (isTestEnvironment) {
+      const mongoMemoryServer = await MongoMemoryServer.create();
+      const uri = mongoMemoryServer.getUri();
+      console.log(`aqui ${uri}`);
+      await mongoose.connect(uri);
+    } else {
+      await mongoose.connect(mongoUri);
+    }
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+  }
+};
+
+connectToMongoDB();
+
+/** -------- server configuration -------- */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -17,7 +56,17 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use("/products", productsRouter);
+
+app.use("/docs", swaggerUI.serve, swaggerUI.setup(specs));
+app.use(express.json());
+
+app.use("/products", ProductsRouter);
+app.use("/cart", CartRouter);
+app.use("/order", OrderRouter);
+
+app.get("/counter", (req, res) => {
+  Counter.find({}).then((data) => res.send(data));
+});
 
 const port = process.env.PORT || 4000;
 
