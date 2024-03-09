@@ -16,9 +16,9 @@ Cart.updateProduct = async (product) => {
 };
 
 Cart.new = async (products = []) => {
-  new Cart({ id: "mycart", products: products }).save();
+  await new Cart({ id: "mycart", products: products }).save();
 
-  return Cart.findOne({ id: "mycart" }).select("-_id -products._id -__v");
+  return Cart.findOne({ id: "mycart" }).select("-_id -__v");
 };
 
 Cart.updateCart = (products) => {
@@ -29,6 +29,14 @@ Cart.updateCart = (products) => {
   )
     .select("-_id -products._id -__v")
     .then((data) => (data ? data : Cart.new(products)));
+};
+
+Cart.cartFlush = () => {
+  return Cart.findOneAndUpdate(
+    { id: "mycart" },
+    { products: [] },
+    { new: true }
+  );
 };
 
 export default Cart;
