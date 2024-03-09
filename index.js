@@ -8,6 +8,8 @@ import specs from "./src/config/swagger-conf.js";
 // database
 import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
+import { dbConnect as database } from "./src/database/database.js";
+import { dbConnect as memoryDatabase } from "./src/database/memory-database.js";
 // routes
 import ProductsRouter from "./src/routes/products.js";
 import CartRouter from "./src/routes/cart.js";
@@ -19,31 +21,11 @@ dotenv.config();
 
 const app = express();
 
-/** -------- mongoose configuration -------- */
+/** -------- database connection -------- */
 const isTestEnvironment = true;
 //process.env.NODE_ENV === "test" ;
 
-const mongoUri = isTestEnvironment
-  ? undefined // Use the in-memory server for testing
-  : process.env.DATABASE;
-
-const connectToMongoDB = async () => {
-  try {
-    if (isTestEnvironment) {
-      const mongoMemoryServer = await MongoMemoryServer.create();
-      const uri = mongoMemoryServer.getUri();
-      console.log(`aqui ${uri}`);
-      await mongoose.connect(uri);
-    } else {
-      await mongoose.connect(mongoUri);
-    }
-    console.log("Connected to MongoDB");
-  } catch (error) {
-    console.error("Error connecting to MongoDB:", error);
-  }
-};
-
-connectToMongoDB();
+isTestEnvironment ? memoryDatabase() : database();
 
 /** -------- server configuration -------- */
 app.use(bodyParser.json());
@@ -73,3 +55,5 @@ const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+export default app;
