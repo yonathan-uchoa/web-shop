@@ -36,7 +36,7 @@ const router = express.Router();
  *                  type: object
  */
 router.get("/", (req, res) => {
-  Cart.find({ id: "mycart" }).then((data) => {
+  Cart.findOne({ id: "mycart" }, "-_id -__v").then((data) => {
     if (data) {
       res.status(200).send({ message: "success!", data: data });
     } else {
