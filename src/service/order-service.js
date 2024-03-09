@@ -1,6 +1,7 @@
 import Order from "../model/order.js";
 import Counter from "../model/counter.js";
 import Cart from "../model/cart.js";
+import CartService from "./cart-service.js";
 
 class OrderService {
   static async generateOrder(paymentMethod) {
@@ -12,6 +13,7 @@ class OrderService {
         (accumulator, value) => accumulator + value.price * value.quantity,
         0
       );
+      await CartService.cartFlush();
 
       return Order.new(_id, _cart, paymentMethod, _total);
     } else {
