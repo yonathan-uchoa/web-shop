@@ -11,7 +11,10 @@
   },
   "jest": {
     "transform": {},
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
+    ]
   },
   "keywords": [],
   "author": "",
