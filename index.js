@@ -17,17 +17,16 @@ import OrderRouter from "./src/routes/order.js";
 
 import Counter from "./src/model/counter.js";
 
+/** -------- dotenv configuration -------- */
 dotenv.config();
 
-const app = express();
-
 /** -------- database connection -------- */
-const isTestEnvironment = true;
-//process.env.NODE_ENV === "test" ;
-
-isTestEnvironment ? memoryDatabase() : database();
+const isTestEnvironment = process.env.NODE_ENV === "test" ? true : false;
+isTestEnvironment ? await memoryDatabase() : await memoryDatabase();
 
 /** -------- server configuration -------- */
+const app = express();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -55,5 +54,9 @@ const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+app.closeServer = () => {
+  server.close();
+};
 
 export default app;
