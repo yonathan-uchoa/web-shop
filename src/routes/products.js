@@ -13,9 +13,10 @@ const router = express.Router();
  *        - category
  *        - title
  *        - quantity
+ *        - image
  *      properties:
  *        id:
- *          type: string
+ *          type: integer
  *        category:
  *          type: string
  *        title:
@@ -24,6 +25,8 @@ const router = express.Router();
  *          type: integer
  *        price:
  *          type: number
+ *        image:
+ *          type: string
  */
 
 /**

@@ -6,6 +6,7 @@ const product = {
   category: String,
   title: String,
   quantity: Number,
+  image: String,
 };
 
 export default new Schema(product, { _id: false });

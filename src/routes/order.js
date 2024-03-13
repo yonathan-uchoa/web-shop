@@ -1,6 +1,5 @@
 import express from "express";
 import Order from "../model/order.js";
-import Counter from "../model/counter.js";
 import OrderService from "../service/order-service.js";
 
 const router = express.Router();
