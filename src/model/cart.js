@@ -3,12 +3,12 @@ import CartSchema from "../schema/cart-schema.js";
 
 const Cart = mongoose.model("cart", CartSchema);
 
-Cart.updateProduct = async (product) => {
+Cart.updateProduct = async (id, quantity) => {
   return Cart.findOneAndUpdate(
-    { id: "mycart", "products.id": product.id },
+    { id: "mycart", "products.id": id },
     {
       $set: {
-        "products.$.quantity": product.quantity,
+        "products.$.quantity": quantity,
       },
     },
     { new: true }
@@ -24,7 +24,7 @@ Cart.new = async (products = []) => {
 Cart.updateCart = (products) => {
   return Cart.findOneAndUpdate(
     { id: "mycart" },
-    { products: products },
+    { $push: { products: products } },
     { new: true }
   )
     .select("-_id -products._id -__v")

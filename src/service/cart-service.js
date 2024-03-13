@@ -16,6 +16,14 @@ class CartService {
         return data;
       });
   }
+
+  static async deleteProduct(idProduct) {
+    return Cart.findOneAndUpdate(
+      { id: "mycart" },
+      { $pull: { products: { id: idProduct } } },
+      { new: true }
+    ).select("-_id -__v");
+  }
 }
 
 export default CartService;
