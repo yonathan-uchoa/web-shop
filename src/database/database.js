@@ -1,8 +1,19 @@
 import mongoose from "mongoose";
+import Product from "../model/product.js";
+import file from "./data.json" assert { type: "json" };
 
 // Connect to MongoDB
 export const dbConnect = async () => {
-  const uri = process.env.DATABASE_URI;
+  const uri = process.env.DATABASE_URL;
+  const database = JSON.parse(file);
+  (async function () {
+    await Promise.all(
+      database.map(async (element) => {
+        await new Product(element).save();
+      })
+    );
+  })();
+
   await mongoose
     .connect(uri)
     .then(() => {
