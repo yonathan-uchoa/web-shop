@@ -2,11 +2,13 @@ import { Schema } from "mongoose";
 
 const product = {
   id: Number,
-  price: Number,
-  category: String,
   title: String,
+  price: Number,
+  description: String,
+  category: String,
   quantity: Number,
   image: String,
+  rating: { rate: Number, count: Number },
 };
 
-export default new Schema(product, { _id: false });
+export default new Schema(product, { versionKey: false });
