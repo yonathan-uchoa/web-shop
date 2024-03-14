@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
-import database from "./data.json" assert { type: "json" };
+import { data } from "./data.js";
 import Product from "../model/product.js";
 
 const mongoServer = await MongoMemoryServer.create();
@@ -10,7 +10,7 @@ export const dbConnect = async () => {
   process.env.DATABASE_URL = uri;
   (async function () {
     await Promise.all(
-      database.map(async (element) => {
+      data.map(async (element) => {
         await new Product(element).save();
       })
     );

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Product from "../model/product.js";
-import file from "./data.json" assert { type: "json" };
+import { data } from "./data.js";
 
 // Connect to MongoDB
 export const dbConnect = async () => {
