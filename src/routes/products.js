@@ -1,4 +1,6 @@
 import express from "express";
+import Product from "../model/product.js";
+import { ProductService } from "../service/product-service.js";
 const router = express.Router();
 
 /** Product definition
@@ -44,6 +46,9 @@ const router = express.Router();
  *        name: sort
  *        type: string
  *        description: sort desc or asc
+ *      - in: query
+ *        name: title
+ *        type: string
  *    responses:
  *      200:
  *        description: success!
@@ -54,13 +59,10 @@ const router = express.Router();
  *
  */
 router.get("/", (req, res) => {
-  fetch(
-    `https://fakestoreapi.com/products?limit=${req.query.limit}&sort=${req.query.sort}`
-  )
-    .then((res) => res.json())
-    .then((json) => {
-      res.status(200).send(json);
-    });
+  const { title, limit, sort } = req.query;
+  ProductService.findProduct(limit, sort, title).then((data) =>
+    res.status(200).send(data)
+  );
 });
 
 /**
@@ -79,11 +81,9 @@ router.get("/", (req, res) => {
  *
  */
 router.get("/categories", (req, res) => {
-  fetch(`https://fakestoreapi.com/products/categories`)
-    .then((res) => res.json())
-    .then((json) => {
-      res.status(200).send(json);
-    });
+  ProductService.findCategories().then((data) => {
+    res.status(200).send(data);
+  });
 });
 
 /**
@@ -101,6 +101,9 @@ router.get("/categories", (req, res) => {
  *        name: sort
  *        type: string
  *        description: sort desc or asc
+ *      - in: query
+ *        name: title
+ *        type: string
  *    responses:
  *      200:
  *        description: success!
@@ -111,13 +114,10 @@ router.get("/categories", (req, res) => {
  *
  */
 router.get("/category/jewelery", (req, res) => {
-  fetch(
-    `https://fakestoreapi.com/products/category/jewelery?limit=${req.query.limit}&sort=${req.query.sort}`
-  )
-    .then((res) => res.json())
-    .then((json) => {
-      res.status(200).send(json);
-    });
+  const { title, limit, sort } = req.query;
+  ProductService.findProduct(limit, sort, title, "category", "jewelery").then(
+    (data) => res.status(200).send(data)
+  );
 });
 
 /**
@@ -135,6 +135,9 @@ router.get("/category/jewelery", (req, res) => {
  *        name: sort
  *        type: string
  *        description: sort desc or asc
+ *      - in: query
+ *        name: title
+ *        type: string
  *    responses:
  *      200:
  *        description: success!
@@ -145,13 +148,14 @@ router.get("/category/jewelery", (req, res) => {
  *
  */
 router.get("/category/men's%20clothing", (req, res) => {
-  fetch(
-    `https://fakestoreapi.com/products/category/men's%20clothing?limit=${req.query.limit}&sort=${req.query.sort}`
-  )
-    .then((res) => res.json())
-    .then((json) => {
-      res.status(200).send(json);
-    });
+  const { title, limit, sort } = req.query;
+  ProductService.findProduct(
+    limit,
+    sort,
+    title,
+    "category",
+    "men's clothing"
+  ).then((data) => res.status(200).send(data));
 });
 
 /**
@@ -169,6 +173,9 @@ router.get("/category/men's%20clothing", (req, res) => {
  *        name: sort
  *        type: string
  *        description: sort desc or asc
+ *      - in: query
+ *        name: title
+ *        type: string
  *    responses:
  *      200:
  *        description: success!
@@ -179,13 +186,14 @@ router.get("/category/men's%20clothing", (req, res) => {
  *
  */
 router.get("/category/women's%20clothing", (req, res) => {
-  fetch(
-    `https://fakestoreapi.com/products/category/women's%20clothing?limit=${req.query.limit}&sort=${req.query.sort}`
-  )
-    .then((res) => res.json())
-    .then((json) => {
-      res.status(200).send(json);
-    });
+  const { title, limit, sort } = req.query;
+  ProductService.findProduct(
+    limit,
+    sort,
+    title,
+    "category",
+    "women's clothing"
+  ).then((data) => res.status(200).send(data));
 });
 
 /**
@@ -203,6 +211,9 @@ router.get("/category/women's%20clothing", (req, res) => {
  *        name: sort
  *        type: string
  *        description: sort desc or asc
+ *      - in: query
+ *        name: title
+ *        type: string
  *    responses:
  *      200:
  *        description: success!
@@ -213,13 +224,10 @@ router.get("/category/women's%20clothing", (req, res) => {
  *
  */
 router.get("/category/electronics", (req, res) => {
-  fetch(
-    `https://fakestoreapi.com/products/category/electronics?limit=${req.query.limit}&sort=${req.query.sort}`
-  )
-    .then((res) => res.json())
-    .then((json) => {
-      res.status(200).send(json);
-    });
+  const { title, limit, sort } = req.query;
+  ProductService.findProduct(limit, sort, title, "category", "eletronics").then(
+    (data) => res.status(200).send(data)
+  );
 });
 
 export default router;
