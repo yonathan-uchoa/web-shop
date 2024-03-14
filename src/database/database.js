@@ -5,10 +5,9 @@ import { data } from "./data.js";
 // Connect to MongoDB
 export const dbConnect = async () => {
   const uri = process.env.DATABASE_URL;
-  const database = JSON.parse(file);
   (async function () {
     await Promise.all(
-      database.map(async (element) => {
+      data.map(async (element) => {
         await new Product(element).save();
       })
     );
