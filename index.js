@@ -21,8 +21,11 @@ import Counter from "./src/model/counter.js";
 dotenv.config();
 
 /** -------- database connection -------- */
-const isTestEnvironment = process.env.NODE_ENV === "test" ? true : false;
-isTestEnvironment ? await memoryDatabase() : await memoryDatabase();
+const isTestEnvironment =
+  process.env.NODE_ENV === "test" || process.env.NODE_ENV === "dev"
+    ? true
+    : false;
+isTestEnvironment ? await memoryDatabase() : await database();
 
 /** -------- server configuration -------- */
 const app = express();
@@ -41,7 +44,7 @@ app.use(cors(corsOptions));
 app.use(function (req, res, next) {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self' https://fakestoreapi.com/; font-src 'self'; img-src 'self'; script-src 'self' https://fakestoreapi.com/; style-src 'self'; frame-src 'self'"
+    "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; frame-src 'self'"
   );
   next();
 });
