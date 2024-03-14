@@ -38,6 +38,14 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.use(function (req, res, next) {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self' https://fakestoreapi.com/; font-src 'self'; img-src 'self'; script-src 'self' https://fakestoreapi.com/; style-src 'self'; frame-src 'self'"
+  );
+  next();
+});
+
 app.use("/docs", swaggerUI.serve, swaggerUI.setup(specs));
 app.use(express.json());
 
