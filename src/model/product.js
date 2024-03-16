@@ -5,7 +5,13 @@ const Product = mongoose.model("product", productSchema);
 
 Product.findByFilter = (limit, sort, title, category) => {
   const regex = new RegExp(`^${title}`, "i");
-  return Product.find({ category: category, title: regex }, { _id: 0 })
+  if (category)
+    return Product.find({ category: category, title: regex }, { _id: 0 })
+      .sort({ id: sort })
+      .limit(limit)
+      .exec();
+
+  return Product.find({ title: regex }, { _id: 0 })
     .sort({ id: sort })
     .limit(limit)
     .exec();
