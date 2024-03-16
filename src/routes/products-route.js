@@ -115,14 +115,48 @@ router.get("/categories", (req, res) => {
  */
 router.get("/category/jewelery", (req, res) => {
   const { title, limit, sort } = req.query;
-  ProductService.findProduct(limit, sort, title, "category", "jewelery").then(
+  ProductService.findProduct(limit, sort, title, "jewelery").then((data) =>
+    res.status(200).send(data)
+  );
+});
+
+/**
+ * @swagger
+ * /products/category/men%27s clothing:
+ *  get:
+ *    description: Return all sale orders.
+ *    tags: [Products]
+ *    parameters:
+ *      - in: query
+ *        name: limit
+ *        type: integer
+ *        description: number of products in one response
+ *      - in: query
+ *        name: sort
+ *        type: string
+ *        description: sort desc or asc
+ *      - in: query
+ *        name: title
+ *        type: string
+ *    responses:
+ *      200:
+ *        description: success!
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *
+ */
+router.get("/category/men%27s%20clothing", (req, res) => {
+  const { title, limit, sort } = req.query;
+  ProductService.findProduct(limit, sort, title, "men's clothing").then(
     (data) => res.status(200).send(data)
   );
 });
 
 /**
  * @swagger
- * /products/category/men's clothing:
+ * /products/category/women%27s clothing:
  *  get:
  *    description: Return all sale orders.
  *    tags: [Products]
@@ -147,53 +181,11 @@ router.get("/category/jewelery", (req, res) => {
  *              type: object
  *
  */
-router.get("/category/men's%20clothing", (req, res) => {
+router.get("/category/women%27s%20clothing", (req, res) => {
   const { title, limit, sort } = req.query;
-  ProductService.findProduct(
-    limit,
-    sort,
-    title,
-    "category",
-    "men's clothing"
-  ).then((data) => res.status(200).send(data));
-});
-
-/**
- * @swagger
- * /products/category/women's clothings:
- *  get:
- *    description: Return all sale orders.
- *    tags: [Products]
- *    parameters:
- *      - in: query
- *        name: limit
- *        type: integer
- *        description: number of products in one response
- *      - in: query
- *        name: sort
- *        type: string
- *        description: sort desc or asc
- *      - in: query
- *        name: title
- *        type: string
- *    responses:
- *      200:
- *        description: success!
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *
- */
-router.get("/category/women's%20clothing", (req, res) => {
-  const { title, limit, sort } = req.query;
-  ProductService.findProduct(
-    limit,
-    sort,
-    title,
-    "category",
-    "women's clothing"
-  ).then((data) => res.status(200).send(data));
+  ProductService.findProduct(limit, sort, title, "women's clothing").then(
+    (data) => res.status(200).send(data)
+  );
 });
 
 /**
@@ -225,8 +217,8 @@ router.get("/category/women's%20clothing", (req, res) => {
  */
 router.get("/category/electronics", (req, res) => {
   const { title, limit, sort } = req.query;
-  ProductService.findProduct(limit, sort, title, "category", "eletronics").then(
-    (data) => res.status(200).send(data)
+  ProductService.findProduct(limit, sort, title, "electronics").then((data) =>
+    res.status(200).send(data)
   );
 });
 

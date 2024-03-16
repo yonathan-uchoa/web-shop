@@ -3,12 +3,9 @@ import productSchema from "../schema/product-schema.js";
 
 const Product = mongoose.model("product", productSchema);
 
-Product.findByFilter = (limit, sort, title, attributeName, attributeValue) => {
+Product.findByFilter = (limit, sort, title, category) => {
   const regex = new RegExp(`^${title}`, "i");
-  return Product.find(
-    { [attributeName]: attributeValue, title: regex },
-    { _id: 0 }
-  )
+  return Product.find({ category: category, title: regex }, { _id: 0 })
     .sort({ id: sort })
     .limit(limit)
     .exec();

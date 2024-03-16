@@ -1,5 +1,5 @@
 import request from "supertest";
-import app from "../../../..";
+import app from "../../../../index.js";
 import { GET, POST } from "./mock.js";
 import { dbDisconnect } from "../../../database/memory-database.js";
 import Cart from "../../../model/cart.js";
