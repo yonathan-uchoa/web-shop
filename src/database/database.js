@@ -8,6 +8,7 @@ export const dbConnect = async () => {
 
   (async function () {
     await Product.collection.drop();
+
     await Promise.all(
       data.map(async (element) => {
         await new Product(element).save();
