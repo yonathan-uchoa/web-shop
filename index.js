@@ -6,14 +6,12 @@ import bodyParser from "body-parser";
 import swaggerUI from "swagger-ui-express";
 import specs from "./src/config/swagger-conf.js";
 // database
-import mongoose from "mongoose";
-import { MongoMemoryServer } from "mongodb-memory-server";
 import { dbConnect as database } from "./src/database/database.js";
 import { dbConnect as memoryDatabase } from "./src/database/memory-database.js";
 // routes
-import ProductsRouter from "./src/routes/products.js";
-import CartRouter from "./src/routes/cart.js";
-import OrderRouter from "./src/routes/order.js";
+import ProductsRouter from "./src/routes/products-route.js";
+import CartRouter from "./src/routes/cart-route.js";
+import OrderRouter from "./src/routes/order-route.js";
 
 import Counter from "./src/model/counter.js";
 
@@ -21,11 +19,9 @@ import Counter from "./src/model/counter.js";
 dotenv.config();
 
 /** -------- database connection -------- */
-const isTestEnvironment =
-  process.env.NODE_ENV === "test" || process.env.NODE_ENV === "dev"
-    ? true
-    : false;
-isTestEnvironment ? await memoryDatabase() : await database();
+const isProdEnvironment =
+  process.env.NODE_ENV.toLocaleLowerCase === "production" ? true : false;
+isProdEnvironment ? await database() : await memoryDatabase();
 
 /** -------- server configuration -------- */
 const app = express();
