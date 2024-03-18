@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
 import { data } from "./data.js";
-import Product from "../model/product.js";
+import { ProductService } from "../service/product-service.js";
 
 const mongoServer = await MongoMemoryServer.create();
 
@@ -11,9 +11,9 @@ export const dbConnect = async () => {
   await mongoose.connect(uri);
 
   for (let i = 0; i < data.length; i++) {
-    await new Product(data[i])
-      .save()
-      .catch(() => console.log("err: " + data[i].id));
+    await ProductService.save(data[i]).catch(() =>
+      console.log("err: " + data[i].id)
+    );
   }
 };
 

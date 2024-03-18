@@ -3,20 +3,22 @@ import CounterSchema from "../schema/counter-schema.js";
 
 const Counter = mongoose.model("counter", CounterSchema);
 
-Counter.updateSeq = () => {
+Counter.updateSeq = (attr) => {
   return Counter.findOneAndUpdate(
     { id: "autoval" },
-    { $inc: { seq: 1 } },
-    { new: true }
-  ).then((data) => {
-    if (data) {
-      return data.seq;
-    } else {
-      const _counter = new Counter({ id: "autoval", seq: 0 });
-      _counter.save();
-      return 0;
-    }
-  });
+    { $inc: { [attr]: 1 } },
+    { new: true, select: `${attr} -_id` }
+  )
+    .lean()
+    .then((data) => {
+      if (data) {
+        return data;
+      } else {
+        const _counter = new Counter({ id: "autoval" });
+        _counter.save();
+        return { [attr]: 0 };
+      }
+    });
 };
 
 export default Counter;

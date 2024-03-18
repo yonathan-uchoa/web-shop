@@ -3,15 +3,12 @@ import OrderSchema from "../schema/order-schema.js";
 
 const Order = mongoose.model("order", OrderSchema);
 
-Order.new = (id, cart, payment, total) => {
-  new Order({
-    id: id,
-    cart: cart,
-    payment: payment,
-    total: total,
-  }).save();
+Order.new = async (order) => {
+  await new Order(order).save();
 
-  return Order.findOne({ id: id }).select("-_id -cart._id -__v");
+  return Order.findOne({ id: order.id }).select(
+    "-_id -cart._id -__v -cart.__v -cart.products._id -cart.products.__v"
+  );
 };
 
 export default Order;

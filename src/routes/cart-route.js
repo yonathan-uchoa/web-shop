@@ -1,6 +1,7 @@
 import express from "express";
 import Cart from "../model/cart.js";
 import CartService from "../service/cart-service.js";
+import { CartValidation } from "../validation/cart-validation.js";
 
 const router = express.Router();
 
@@ -39,53 +40,17 @@ const router = express.Router();
  *                  $ref: '#/components/schemas/Cart'
  */
 router.get("/", (req, res) => {
-  Cart.findOne({ id: "mycart" }, "-_id -__v").then((data) => {
-    if (data) {
-      res.status(200).send({ message: "success!", data: data });
-    } else {
-      Cart.new().then((data) => {
+  Cart.findOne({ id: "mycart" }, "-_id -__v")
+    .then((data) => {
+      if (data) {
         res.status(200).send({ message: "success!", data: data });
-      });
-    }
-  });
-});
-
-/**
- * @swagger
- * /cart:
- *  post:
- *    summary: Insert new products to a cart.
- *    tags: [Cart]
- *    produces:
- *      - application/json
- *    requestBody:
- *      required: false
- *      content:
- *        application/json:
- *          schema:
- *            $ref: '#/components/schemas/Cart'
- *    responses:
- *      200:
- *        description: cart has been updated!
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                message:
- *                  type: string
- *                  example: cart has been updated successfully!
- *                data:
- *                  type: object
- */
-router.post("/", async (req, res) => {
-  const { products } = req.body;
-  Cart.updateCart(products).then((data) =>
-    res.status(200).send({
-      message: "cart item has been added!",
-      data: data,
+      } else {
+        Cart.new().then((data) => {
+          res.status(200).send({ message: "success!", data: data });
+        });
+      }
     })
-  );
+    .catch((err) => console.log(err));
 });
 
 /**
@@ -103,8 +68,10 @@ router.post("/", async (req, res) => {
  *          schema:
  *            type: object
  *            properties:
- *              products:
- *                $ref: '#/components/schemas/Product'
+ *              idProduct:
+ *                type: number
+ *              quantity:
+ *                type: number
  *    responses:
  *      200:
  *        description: cart has been updated!
@@ -120,18 +87,22 @@ router.post("/", async (req, res) => {
  *                  type: object
  */
 router.put("/", async (req, res) => {
-  const { products } = req.body;
-  Cart.updateCart(products).then((data) =>
-    res.status(200).send({
-      message: "cart item has been added!",
-      data: data,
-    })
-  );
+  const { idProduct, quantity } = req.body;
+  CartService.addProduct(idProduct, quantity)
+    .then((data) =>
+      res.status(200).send({
+        message: "cart item has been added!",
+        data: data,
+      })
+    )
+    .catch((err) =>
+      res.status(err.status).send({ message: err.message, data: err.data })
+    );
 });
 
 /**
  * @swagger
- * /cart/{productId}:
+ * /cart/{idProduct}:
  *  patch:
  *    summary: Insert new products to a cart.
  *    tags: [Cart]
@@ -139,7 +110,7 @@ router.put("/", async (req, res) => {
  *      - application/json
  *    parameters:
  *      - in: path
- *        name: productId
+ *        name: idProduct
  *        type: integer
  *        required: true
  *    requestBody:
@@ -165,22 +136,24 @@ router.put("/", async (req, res) => {
  *                data:
  *                  type: object
  */
-router.patch("/:productId", async (req, res) => {
+router.patch("/:idProduct", async (req, res) => {
   const { quantity } = req.body;
-  const { productId } = req.params;
-  if (quantity < 1) {
-    return null;
-  }
-  Cart.updateProduct(productId, quantity).then((data) => {
-    res
-      .status(200)
-      .send({ message: "cart item has been updated!", data: data });
-  });
+  const { idProduct } = req.params;
+  await CartValidation.addProduct(idProduct, quantity);
+  CartService.updateProduct(idProduct, quantity)
+    .then((data) =>
+      res
+        .status(200)
+        .send({ message: "cart item has been updated!", data: data })
+    )
+    .catch((err) =>
+      res.status(err.status).send({ message: err.message, data: err.data })
+    );
 });
 
 /**
  * @swagger
- * /cart/{productId}:
+ * /cart/{idProduct}:
  *  delete:
  *    summary: Insert new products to a cart.
  *    tags: [Cart]
@@ -188,7 +161,7 @@ router.patch("/:productId", async (req, res) => {
  *      - application/json
  *    parameters:
  *      - in: path
- *        name: productId
+ *        name: idProduct
  *        schema:
  *          type: integer
  *          required: true
@@ -206,13 +179,15 @@ router.patch("/:productId", async (req, res) => {
  *                data:
  *                  type: object
  */
-router.delete("/:productId", async (req, res) => {
-  const { productId } = req.params;
-  CartService.deleteProduct(productId).then((data) => {
-    res
-      .status(200)
-      .send({ message: "cart item has been updated!", data: data });
-  });
+router.delete("/:idProduct", async (req, res) => {
+  const { idProduct } = req.params;
+  CartService.deleteProduct(idProduct)
+    .then((data) => {
+      res
+        .status(200)
+        .send({ message: "cart item has been updated!", data: data });
+    })
+    .catch((err) => res.status(400).send({ message: err }));
 });
 
 export default router;

@@ -95,7 +95,9 @@ router.post("/", async (req, res) => {
         data: data,
       });
     })
-    .catch((err) => res.status(err.status).send({ message: err.message }));
+    .catch((err) =>
+      res.status(err.status).send({ message: err.message, data: err.data })
+    );
 });
 
 export default router;
