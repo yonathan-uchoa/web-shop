@@ -2,7 +2,8 @@ import { Schema } from "mongoose";
 
 const counter = {
   id: String,
-  seq: Number,
+  order: { type: Number, default: 0 },
+  product: { type: Number, default: 0 },
 };
 
 export default new Schema(counter);

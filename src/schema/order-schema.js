@@ -9,7 +9,7 @@ const order = {
   cart: cartSchema,
   total: Number,
   payment: String,
-  createAt: { type: Date, default: Date.now },
+  createAt: { type: Date, default: new Date().toLocaleString("en-US") },
 };
 
 export default new Schema(order);
