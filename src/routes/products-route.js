@@ -1,6 +1,7 @@
 import express from "express";
 import Product from "../model/product.js";
 import { ProductService } from "../service/product-service.js";
+
 const router = express.Router();
 
 /** Product definition
@@ -23,11 +24,31 @@ const router = express.Router();
  *          type: string
  *        title:
  *          type: string
+ *        description:
+ *          type: string
  *        quantity:
  *          type: integer
  *        price:
  *          type: number
  *        image:
+ *          type: string
+ *    Product-post:
+ *      type: object
+ *      required:
+ *        - price
+ *        - category
+ *        - title
+ *        - image
+ *      properties:
+ *        category:
+ *          type: string
+ *        title:
+ *          type: string
+ *        price:
+ *          type: number
+ *        image:
+ *          type: string
+ *        description:
  *          type: string
  */
 
@@ -63,6 +84,35 @@ router.get("/", (req, res) => {
   ProductService.findProduct(limit, sort, title).then((data) =>
     res.status(200).send(data)
   );
+});
+
+/**
+ * @swagger
+ * /products:
+ *  post:
+ *    description: Return all sale orders.
+ *    tags: [Products]
+ *    produces:
+ *      - application/json
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Product-post'
+ *
+ *    responses:
+ *      200:
+ *        description: success!
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *
+ */
+router.post("/", (req, res) => {
+  const product = req.body;
+  ProductService.save(product).then((data) => res.status(200).send(data));
 });
 
 /**

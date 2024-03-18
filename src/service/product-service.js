@@ -1,4 +1,7 @@
+import Counter from "../model/counter.js";
 import Product from "../model/product.js";
+import { genericError } from "../utils/error-handle.js";
+import { ProductValidation } from "../validation/product-validation.js";
 
 export class ProductService {
   /**
@@ -20,5 +23,21 @@ export class ProductService {
 
   static async findCategories() {
     return Product.findCategories();
+  }
+
+  static async save(prod) {
+    await ProductValidation.validate(prod);
+    const { product: _id } = await Counter.updateSeq("product");
+    prod.id = _id;
+    const _product = await new Product(prod);
+    return _product.save();
+  }
+
+  static async findById(id) {
+    return Product.findOne({ id: id }, "-_id -__v")
+      .lean()
+      .then((data) =>
+        data ? data : genericError(404, `product id: ${id} not found!`)
+      );
   }
 }
