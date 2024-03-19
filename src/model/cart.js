@@ -18,7 +18,7 @@ Cart.updateProduct = async (idProduct, quantity) => {
 Cart.new = async (products = []) => {
   await new Cart({ id: "mycart", products: products }).save();
 
-  return Cart.findOne({ id: "mycart" }).select("-_id -__v");
+  return Cart.findOne({ id: "mycart" }).select("-_id -__v -products._id");
 };
 
 Cart.updateCart = (products) => {
