@@ -26,6 +26,13 @@ class CartService {
     );
   }
 
+  static async cascadeUpdateProduct(product) {
+    return Cart.findOneAndUpdate(
+      { "products.id": product.id },
+      { $set: { "products.$": product } }
+    );
+  }
+
   static async deleteProduct(idProduct) {
     return Cart.findOneAndUpdate(
       { id: "mycart" },
@@ -38,6 +45,7 @@ class CartService {
         throw genericError(404, "product not found!");
       });
   }
+
   static async addProduct(idProduct, quantity) {
     await CartValidation.addProduct(idProduct, quantity);
     await CartService.productOnCart(idProduct);
@@ -45,6 +53,7 @@ class CartService {
     _product.quantity = quantity;
     return Cart.updateCart(_product);
   }
+
   static async updateProduct(idProduct, quantity) {
     await CartValidation.addProduct(idProduct, quantity);
     return Cart.updateProduct(idProduct, quantity).then((data) =>

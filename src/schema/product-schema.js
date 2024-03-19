@@ -4,10 +4,10 @@ const product = {
   id: { type: Number, unique: true },
   title: String,
   price: Number,
-  description: String,
+  description: { type: String, default: "no description" },
   category: String,
   quantity: Number,
-  image: String,
+  image: { type: String, default: "https://placehold.co/200x300" },
   rating: {
     rate: { type: Number, default: 0 },
     count: { type: Number, default: 0 },

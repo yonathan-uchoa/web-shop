@@ -40,4 +40,18 @@ export class ProductService {
         data ? data : genericError(404, `product id: ${id} not found!`)
       );
   }
+
+  static async update(idProduct, product) {
+    await ProductValidation.patch(product);
+    return Product.findOneAndUpdate(
+      { id: idProduct },
+      { $set: product },
+      { new: true }
+    )
+      .select("-_id -__v")
+      .lean()
+      .then((data) =>
+        data ? data : genericError(404, `product id: ${idProduct}, not found!`)
+      );
+  }
 }
