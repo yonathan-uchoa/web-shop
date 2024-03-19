@@ -228,9 +228,9 @@ router.post("/", (req, res) => {
 
 /**
  * @swagger
- * /products/categories:
+ * /products/categories/all:
  *  get:
- *    description: Return all sale orders.
+ *    description: Return all categories.
  *    tags: [Products]
  *    responses:
  *      200:
@@ -238,13 +238,16 @@ router.post("/", (req, res) => {
  *        content:
  *          application/json:
  *            schema:
- *              type: object
+ *              type: array
  *
  */
-router.get("/categories", (req, res) => {
-  ProductService.findCategories().then((data) => {
-    res.status(200).send(data);
-  });
+router.get("/categories/all", (req, res) => {
+  console.log("aqui");
+  ProductService.findCategories()
+    .then((data) => {
+      res.status(200).send(data);
+    })
+    .catch((err) => res.status(404).send(err));
 });
 
 /**
