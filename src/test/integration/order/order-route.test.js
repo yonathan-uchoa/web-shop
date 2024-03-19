@@ -26,11 +26,11 @@ describe("ROUTE - /order/*", () => {
       it("should return a error, cart.products empty", async () => {
         await Cart.new();
 
-        const response = await request(app).post("/order").expect(400);
+        const response = await request(app).post("/order").expect(428);
       });
 
       it("should return a error, cart null", async () => {
-        const response = await request(app).post("/order").expect(400);
+        const response = await request(app).post("/order").expect(428);
       });
     });
   });

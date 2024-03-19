@@ -5,7 +5,7 @@ export const mockProducts = {
         rate: 3.9,
         count: 120,
       },
-      id: 1,
+      id: 0,
       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
       price: 109.95,
       description:
@@ -18,7 +18,7 @@ export const mockProducts = {
         rate: 4.1,
         count: 259,
       },
-      id: 2,
+      id: 1,
       title: "Mens Casual Premium Slim Fit T-Shirts ",
       price: 22.3,
       description:
@@ -32,7 +32,7 @@ export const mockProducts = {
         rate: 4.7,
         count: 500,
       },
-      id: 3,
+      id: 2,
       title: "Mens Cotton Jacket",
       price: 55.99,
       description:
@@ -45,7 +45,7 @@ export const mockProducts = {
         rate: 2.1,
         count: 430,
       },
-      id: 4,
+      id: 3,
       title: "Mens Casual Slim Fit",
       price: 15.99,
       description:
@@ -58,7 +58,7 @@ export const mockProducts = {
         rate: 4.6,
         count: 400,
       },
-      id: 5,
+      id: 4,
       title:
         "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
       price: 695,
@@ -72,7 +72,7 @@ export const mockProducts = {
         rate: 3.9,
         count: 70,
       },
-      id: 6,
+      id: 5,
       title: "Solid Gold Petite Micropave ",
       price: 168,
       description:
@@ -85,7 +85,7 @@ export const mockProducts = {
         rate: 3,
         count: 400,
       },
-      id: 7,
+      id: 6,
       title: "White Gold Plated Princess",
       price: 9.99,
       description:
@@ -98,7 +98,7 @@ export const mockProducts = {
         rate: 1.9,
         count: 100,
       },
-      id: 8,
+      id: 7,
       title: "Pierced Owl Rose Gold Plated Stainless Steel Double",
       price: 10.99,
       description:
@@ -111,7 +111,7 @@ export const mockProducts = {
         rate: 3.3,
         count: 203,
       },
-      id: 9,
+      id: 8,
       title: "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
       price: 64,
       description:
@@ -124,7 +124,7 @@ export const mockProducts = {
         rate: 2.9,
         count: 470,
       },
-      id: 10,
+      id: 9,
       title: "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
       price: 109,
       description:
@@ -137,7 +137,7 @@ export const mockProducts = {
         rate: 4.8,
         count: 319,
       },
-      id: 11,
+      id: 10,
       title:
         "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
       price: 109,
@@ -151,7 +151,7 @@ export const mockProducts = {
         rate: 4.8,
         count: 400,
       },
-      id: 12,
+      id: 11,
       title:
         "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
       price: 114,
@@ -165,7 +165,7 @@ export const mockProducts = {
         rate: 2.9,
         count: 250,
       },
-      id: 13,
+      id: 12,
       title: "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
       price: 599,
       description:
@@ -178,7 +178,7 @@ export const mockProducts = {
         rate: 2.2,
         count: 140,
       },
-      id: 14,
+      id: 13,
       title:
         "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
       price: 999.99,
@@ -192,7 +192,7 @@ export const mockProducts = {
         rate: 2.6,
         count: 235,
       },
-      id: 15,
+      id: 14,
       title: "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
       price: 56.99,
       description:
@@ -205,7 +205,7 @@ export const mockProducts = {
         rate: 2.9,
         count: 340,
       },
-      id: 16,
+      id: 15,
       title:
         "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
       price: 29.95,
@@ -219,7 +219,7 @@ export const mockProducts = {
         rate: 3.8,
         count: 679,
       },
-      id: 17,
+      id: 16,
       title: "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
       price: 39.99,
       description:
@@ -232,7 +232,7 @@ export const mockProducts = {
         rate: 4.7,
         count: 130,
       },
-      id: 18,
+      id: 17,
       title: "MBJ Women's Solid Short Sleeve Boat Neck V ",
       price: 9.85,
       description:
@@ -245,7 +245,7 @@ export const mockProducts = {
         rate: 4.5,
         count: 146,
       },
-      id: 19,
+      id: 18,
       title: "Opna Women's Short Sleeve Moisture",
       price: 7.95,
       description:
@@ -258,7 +258,7 @@ export const mockProducts = {
         rate: 3.6,
         count: 145,
       },
-      id: 20,
+      id: 19,
       title: "DANVOUY Womens T Shirt Casual Cotton Short",
       price: 12.99,
       description:
@@ -273,7 +273,7 @@ export const mockProducts = {
         rate: 3.6,
         count: 145,
       },
-      id: 20,
+      id: 19,
       title: "DANVOUY Womens T Shirt Casual Cotton Short",
       price: 12.99,
       description:
@@ -286,7 +286,7 @@ export const mockProducts = {
         rate: 4.5,
         count: 146,
       },
-      id: 19,
+      id: 18,
       title: "Opna Women's Short Sleeve Moisture",
       price: 7.95,
       description:
@@ -299,7 +299,7 @@ export const mockProducts = {
         rate: 4.7,
         count: 130,
       },
-      id: 18,
+      id: 17,
       title: "MBJ Women's Solid Short Sleeve Boat Neck V ",
       price: 9.85,
       description:
@@ -312,7 +312,7 @@ export const mockProducts = {
         rate: 3.8,
         count: 679,
       },
-      id: 17,
+      id: 16,
       title: "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
       price: 39.99,
       description:
@@ -325,7 +325,7 @@ export const mockProducts = {
         rate: 2.9,
         count: 340,
       },
-      id: 16,
+      id: 15,
       title:
         "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
       price: 29.95,
@@ -339,7 +339,7 @@ export const mockProducts = {
         rate: 2.6,
         count: 235,
       },
-      id: 15,
+      id: 14,
       title: "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
       price: 56.99,
       description:
@@ -352,7 +352,7 @@ export const mockProducts = {
         rate: 2.2,
         count: 140,
       },
-      id: 14,
+      id: 13,
       title:
         "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
       price: 999.99,
@@ -366,7 +366,7 @@ export const mockProducts = {
         rate: 2.9,
         count: 250,
       },
-      id: 13,
+      id: 12,
       title: "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
       price: 599,
       description:
@@ -379,7 +379,7 @@ export const mockProducts = {
         rate: 4.8,
         count: 400,
       },
-      id: 12,
+      id: 11,
       title:
         "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
       price: 114,
@@ -393,7 +393,7 @@ export const mockProducts = {
         rate: 4.8,
         count: 319,
       },
-      id: 11,
+      id: 10,
       title:
         "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
       price: 109,
@@ -407,7 +407,7 @@ export const mockProducts = {
         rate: 2.9,
         count: 470,
       },
-      id: 10,
+      id: 9,
       title: "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
       price: 109,
       description:
@@ -420,7 +420,7 @@ export const mockProducts = {
         rate: 3.3,
         count: 203,
       },
-      id: 9,
+      id: 8,
       title: "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
       price: 64,
       description:
@@ -433,7 +433,7 @@ export const mockProducts = {
         rate: 1.9,
         count: 100,
       },
-      id: 8,
+      id: 7,
       title: "Pierced Owl Rose Gold Plated Stainless Steel Double",
       price: 10.99,
       description:
@@ -446,7 +446,7 @@ export const mockProducts = {
         rate: 3,
         count: 400,
       },
-      id: 7,
+      id: 6,
       title: "White Gold Plated Princess",
       price: 9.99,
       description:
@@ -459,7 +459,7 @@ export const mockProducts = {
         rate: 3.9,
         count: 70,
       },
-      id: 6,
+      id: 5,
       title: "Solid Gold Petite Micropave ",
       price: 168,
       description:
@@ -472,7 +472,7 @@ export const mockProducts = {
         rate: 4.6,
         count: 400,
       },
-      id: 5,
+      id: 4,
       title:
         "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
       price: 695,
@@ -486,7 +486,7 @@ export const mockProducts = {
         rate: 2.1,
         count: 430,
       },
-      id: 4,
+      id: 3,
       title: "Mens Casual Slim Fit",
       price: 15.99,
       description:
@@ -499,7 +499,7 @@ export const mockProducts = {
         rate: 4.7,
         count: 500,
       },
-      id: 3,
+      id: 2,
       title: "Mens Cotton Jacket",
       price: 55.99,
       description:
@@ -512,7 +512,7 @@ export const mockProducts = {
         rate: 4.1,
         count: 259,
       },
-      id: 2,
+      id: 1,
       title: "Mens Casual Premium Slim Fit T-Shirts ",
       price: 22.3,
       description:
@@ -526,7 +526,7 @@ export const mockProducts = {
         rate: 3.9,
         count: 120,
       },
-      id: 1,
+      id: 0,
       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
       price: 109.95,
       description:
@@ -541,7 +541,7 @@ export const mockProducts = {
         rate: 3.9,
         count: 120,
       },
-      id: 1,
+      id: 0,
       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
       price: 109.95,
       description:
@@ -554,7 +554,7 @@ export const mockProducts = {
         rate: 4.1,
         count: 259,
       },
-      id: 2,
+      id: 1,
       title: "Mens Casual Premium Slim Fit T-Shirts ",
       price: 22.3,
       description:
@@ -568,7 +568,7 @@ export const mockProducts = {
         rate: 4.7,
         count: 500,
       },
-      id: 3,
+      id: 2,
       title: "Mens Cotton Jacket",
       price: 55.99,
       description:
@@ -581,7 +581,7 @@ export const mockProducts = {
         rate: 2.1,
         count: 430,
       },
-      id: 4,
+      id: 3,
       title: "Mens Casual Slim Fit",
       price: 15.99,
       description:
@@ -594,7 +594,7 @@ export const mockProducts = {
         rate: 4.6,
         count: 400,
       },
-      id: 5,
+      id: 4,
       title:
         "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
       price: 695,
@@ -610,7 +610,7 @@ export const mockProducts = {
         rate: 3.9,
         count: 70,
       },
-      id: 6,
+      id: 5,
       title: "Solid Gold Petite Micropave ",
       price: 168,
       description:
@@ -623,7 +623,7 @@ export const mockProducts = {
         rate: 2.9,
         count: 470,
       },
-      id: 10,
+      id: 9,
       title: "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
       price: 109,
       description:
@@ -636,7 +636,7 @@ export const mockProducts = {
         rate: 4.8,
         count: 319,
       },
-      id: 11,
+      id: 10,
       title:
         "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
       price: 109,
@@ -650,7 +650,7 @@ export const mockProducts = {
         rate: 2.2,
         count: 140,
       },
-      id: 14,
+      id: 13,
       title:
         "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
       price: 999.99,
@@ -666,7 +666,7 @@ export const mockProducts = {
         rate: 2.2,
         count: 140,
       },
-      id: 14,
+      id: 13,
       title:
         "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
       price: 999.99,
@@ -680,7 +680,7 @@ export const mockProducts = {
         rate: 4.8,
         count: 319,
       },
-      id: 11,
+      id: 10,
       title:
         "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
       price: 109,
@@ -698,7 +698,7 @@ export const mockJewelery = [
       rate: 4.6,
       count: 400,
     },
-    id: 5,
+    id: 4,
     title:
       "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
     price: 695,
@@ -712,7 +712,7 @@ export const mockJewelery = [
       rate: 3.9,
       count: 70,
     },
-    id: 6,
+    id: 5,
     title: "Solid Gold Petite Micropave ",
     price: 168,
     description:
@@ -725,7 +725,7 @@ export const mockJewelery = [
       rate: 3,
       count: 400,
     },
-    id: 7,
+    id: 6,
     title: "White Gold Plated Princess",
     price: 9.99,
     description:
@@ -738,7 +738,7 @@ export const mockJewelery = [
       rate: 1.9,
       count: 100,
     },
-    id: 8,
+    id: 7,
     title: "Pierced Owl Rose Gold Plated Stainless Steel Double",
     price: 10.99,
     description:
@@ -754,7 +754,7 @@ export const mockElectronics = [
       rate: 3.3,
       count: 203,
     },
-    id: 9,
+    id: 8,
     title: "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
     price: 64,
     description:
@@ -767,7 +767,7 @@ export const mockElectronics = [
       rate: 2.9,
       count: 470,
     },
-    id: 10,
+    id: 9,
     title: "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
     price: 109,
     description:
@@ -780,7 +780,7 @@ export const mockElectronics = [
       rate: 4.8,
       count: 319,
     },
-    id: 11,
+    id: 10,
     title:
       "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
     price: 109,
@@ -794,7 +794,7 @@ export const mockElectronics = [
       rate: 4.8,
       count: 400,
     },
-    id: 12,
+    id: 11,
     title:
       "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
     price: 114,
@@ -808,7 +808,7 @@ export const mockElectronics = [
       rate: 2.9,
       count: 250,
     },
-    id: 13,
+    id: 12,
     title: "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
     price: 599,
     description:
@@ -821,7 +821,7 @@ export const mockElectronics = [
       rate: 2.2,
       count: 140,
     },
-    id: 14,
+    id: 13,
     title:
       "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
     price: 999.99,
@@ -838,7 +838,7 @@ export const mockWomenClothing = [
       rate: 2.6,
       count: 235,
     },
-    id: 15,
+    id: 14,
     title: "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
     price: 56.99,
     description:
@@ -851,7 +851,7 @@ export const mockWomenClothing = [
       rate: 2.9,
       count: 340,
     },
-    id: 16,
+    id: 15,
     title:
       "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
     price: 29.95,
@@ -865,7 +865,7 @@ export const mockWomenClothing = [
       rate: 3.8,
       count: 679,
     },
-    id: 17,
+    id: 16,
     title: "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
     price: 39.99,
     description:
@@ -878,7 +878,7 @@ export const mockWomenClothing = [
       rate: 4.7,
       count: 130,
     },
-    id: 18,
+    id: 17,
     title: "MBJ Women's Solid Short Sleeve Boat Neck V ",
     price: 9.85,
     description:
@@ -891,7 +891,7 @@ export const mockWomenClothing = [
       rate: 4.5,
       count: 146,
     },
-    id: 19,
+    id: 18,
     title: "Opna Women's Short Sleeve Moisture",
     price: 7.95,
     description:
@@ -904,7 +904,7 @@ export const mockWomenClothing = [
       rate: 3.6,
       count: 145,
     },
-    id: 20,
+    id: 19,
     title: "DANVOUY Womens T Shirt Casual Cotton Short",
     price: 12.99,
     description:
@@ -920,7 +920,7 @@ export const mockMenClothing = [
       rate: 3.9,
       count: 120,
     },
-    id: 1,
+    id: 0,
     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
     price: 109.95,
     description:
@@ -933,7 +933,7 @@ export const mockMenClothing = [
       rate: 4.1,
       count: 259,
     },
-    id: 2,
+    id: 1,
     title: "Mens Casual Premium Slim Fit T-Shirts ",
     price: 22.3,
     description:
@@ -947,7 +947,7 @@ export const mockMenClothing = [
       rate: 4.7,
       count: 500,
     },
-    id: 3,
+    id: 2,
     title: "Mens Cotton Jacket",
     price: 55.99,
     description:
@@ -960,7 +960,7 @@ export const mockMenClothing = [
       rate: 2.1,
       count: 430,
     },
-    id: 4,
+    id: 3,
     title: "Mens Casual Slim Fit",
     price: 15.99,
     description:
@@ -969,3 +969,80 @@ export const mockMenClothing = [
     image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
   },
 ];
+
+const defaultPost = {
+  category: "category test",
+  title: "test title",
+  price: 1,
+  description: "test description",
+  rating: {
+    rate: 1,
+    count: 1,
+  },
+};
+
+export const mockPost = {
+  price: {
+    null: {
+      body: { ...defaultPost, price: null },
+      response: {
+        message: "price is a required field",
+        data: ["price is a required field"],
+      },
+    },
+    zero: {
+      body: { ...defaultPost, price: 0 },
+      response: {
+        message: "price must be greater than 0",
+        data: ["price must be greater than 0"],
+      },
+    },
+    negative: {
+      body: { ...defaultPost, price: -1 },
+      response: {
+        message: "price must be greater than 0",
+        data: ["price must be greater than 0"],
+      },
+    },
+  },
+  title: {
+    null: {
+      body: { ...defaultPost, title: null },
+      response: {
+        message: "title is a required field",
+        data: ["title is a required field"],
+      },
+    },
+    moreThan255: {
+      body: {
+        ...defaultPost,
+        title:
+          "Yn55ngqIwfpu4SXsORpth61ZSzCjLnQvWuBQwKNrpLhFdKuwORLvMQbKzQyt95BkoOD3t35ErjohHJ7L4hNrXGdRBV9DAHUCGHgiQPsZmXYQcxZZJgcu59pPWD83la7ZNwHec0G9wjHfLYzj6ucmnTxW6HRKzuEl1Sdzp7e4ZST37R20L26xti7eLALawSk4j9u5aRCSAiDwuEVuHaRlsQ2AKEHJeXfOi37jdnQTaYBwynD1FmS7HkW1CRG39wF1",
+      },
+      response: {
+        message: "title must be at most 255 characters",
+        data: ["title must be at most 255 characters"],
+      },
+    },
+  },
+  category: {
+    null: {
+      body: { ...defaultPost, category: null },
+      response: {
+        message: "category is a required field",
+        data: ["category is a required field"],
+      },
+    },
+    moreThan100: {
+      body: {
+        ...defaultPost,
+        category:
+          "efh3HxOg5PDgr2NNgWylp2TmSdAUFs4CXWpslBPloPAmqo57OD5AH7PmZImb5ZjTKYrJcIDh4PwjEPdYZ6U7nBp738P61W0oY6Oc5",
+      },
+      response: {
+        message: "category must be at most 100 characters",
+        data: ["category must be at most 100 characters"],
+      },
+    },
+  },
+};
